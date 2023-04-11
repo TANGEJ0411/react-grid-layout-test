@@ -23,45 +23,51 @@ function AgGridTest() {
     // })
     const [code, setCode] = useState("")
     const [token, setToken] = useState("")
-    const url = new URL(window.location.href) //當前網址
+    // const []
     useEffect(() => {
+        const url = new URL(window.location.href) //當前網址
+        console.log(url)
         console.log(url.searchParams.get('code'))
         setCode(url.searchParams.get('code'))
     }, [])
 
     useEffect(() => {
         async function getToken() {
-            try {
-                const response = await axios.post('https://api.line.me/oauth2/v2.1/token', {
-                    client_id: '1660858533',
-                    grant_type: 'authorization_code',
-                    code,
-                    client_secret: '4e16d5fc11ffda0a5e6189770cf40c7a',
-                    redirect_uri: 'http://localhost:3000'
-                }, {
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded'
-                    }
-                })
-                setToken(response.data.access_token);
-            } catch (error) {
-                // console.error(error);
+            if (code !== "") {
+                try {
+                    const response = await axios.post('https://api.line.me/oauth2/v2.1/token', {
+                        client_id: '1660858533',
+                        grant_type: 'authorization_code',
+                        code,
+                        client_secret: '4e16d5fc11ffda0a5e6189770cf40c7a',
+                        redirect_uri: 'http://localhost:3000'
+                    }, {
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        }
+                    })
+                    setToken(response.data.access_token);
+                } catch (error) {
+                    // console.error(error);
+                }
             }
         }
         getToken();
     }, [code])
     useEffect(() => {
         async function getUser() {
-            try {
-                const response = await axios.get('https://api.line.me/v2/profile', {
-                    headers: {
-                        Authorization: `Bearer ${token}`
-                    }
-                })
-                console.log(response)
-                alert(`uid:${response.data.userId}\n name:${response.data.displayName}`)
-            } catch (error) {
-                // console.error(error);
+            if (token !== "") {
+                try {
+                    const response = await axios.get('https://api.line.me/v2/profile', {
+                        headers: {
+                            Authorization: `Bearer ${token}`
+                        }
+                    })
+                    console.log(response)
+                    alert(`uid:${response.data.userId}\n name:${response.data.displayName}`)
+                } catch (error) {
+                    // console.error(error);
+                }
             }
         }
         getUser();
@@ -81,6 +87,7 @@ function AgGridTest() {
                     rowData={data.rowData}>
                 </AgGridReact>
             </div> */}
+            {token && (<img src='https://profile.line-scdn.net/0h2nNLW6zCbUFjNXoJ2jITPhNlbitARDRTTAAnLwU0ZHIKDH8TH1UkJV49ZiZZDH4QSQNxclBhYSRvJhonfWORdWQFM3ZZBCMTRlcgpQ' />)}
             <a href='https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=1660858533&redirect_uri=http://localhost:3000&state=12345abcde&scope=profile'>LINE</a>
         </>
     )
