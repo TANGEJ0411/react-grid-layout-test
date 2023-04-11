@@ -11,10 +11,10 @@ function App() {
   // console.log(document.querySelector('#test').dataset.apple)
   return (
     <>
-      <ReactGridLayoutTest />
-      <hr />
-      <Table />
-      <ReactGridTable />
+      {/* <ReactGridLayoutTest /> */}
+      {/* <hr /> */}
+      {/* <Table /> */}
+      {/* <ReactGridTable /> */}
       <AgGridTest />
       {/* <div data-apple={{ a: 1, b: 2 }} id='test'></div> */}
     </>
