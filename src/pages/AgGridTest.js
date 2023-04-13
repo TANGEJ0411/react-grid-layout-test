@@ -88,7 +88,7 @@ function AgGridTest() {
                 </AgGridReact>
             </div> */}
             {token && (<img src='https://profile.line-scdn.net/0h2nNLW6zCbUFjNXoJ2jITPhNlbitARDRTTAAnLwU0ZHIKDH8TH1UkJV49ZiZZDH4QSQNxclBhYSRvJhonfWORdWQFM3ZZBCMTRlcgpQ' />)}
-            <a href='https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=1660858533&redirect_uri=http://localhost:3000&state=12345abcde&scope=profile'>LINE</a>
+            <a href='https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=1660858533&redirect_uri=http://localhost:3000&state=12345abcde&scope=profile%20openid%20email'>LINE</a>
         </>
     )
 }
