@@ -5,6 +5,7 @@ import ReactGridLayoutTest from './pages/ReactGridLayoutTest';
 import Table from './pages/Table';
 import AgGridTest from './pages/AgGridTest';
 import ReactGridTable from './pages/ReactGridTable';
+import TestAnimate from './pages/TestAnimate';
 
 
 function App() {
@@ -15,8 +16,9 @@ function App() {
       {/* <hr /> */}
       {/* <Table /> */}
       {/* <ReactGridTable /> */}
-      <AgGridTest />
+      {/* <AgGridTest /> */}
       {/* <div data-apple={{ a: 1, b: 2 }} id='test'></div> */}
+      <TestAnimate />
     </>
   );
 }

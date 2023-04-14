@@ -1,7 +1,19 @@
 .App {
   text-align: center;
 }
-
+.block-box {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border: 1px solid #000;
+}
+.block-box .block {
+  width: 100px;
+  height: 100px;
+  background: #000;
+  display: none;
+  transform: translateX(100px);
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
